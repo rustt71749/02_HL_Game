@@ -1,5 +1,6 @@
-# HL Decomposition Step 6
-# combine all components and slightly modify them to work as one fully working program
+# Higher Lower
+# Program should work but will need to be usability tested
+import random
 
 # Number checking function:
 def int_check(question, low=None, high=None):
@@ -46,3 +47,46 @@ highest = int_check("High Number: ", lowest + 1)
 rounds = int_check("Rounds: ", 1)
 guess = int_check("Guess: ", lowest, highest)
 
+# Generate secret number between low and high
+LOW = lowest
+HIGH = highest
+
+for item in range(LOW, HIGH):
+    secret = random.randint(LOW, HIGH)
+
+# Compare users guess with secret number
+SECRET = secret
+GUESSES_ALLOWED = guess
+
+already_guessed = []
+guesses_left = GUESSES_ALLOWED
+num_won = 0
+
+guess = ""
+
+while guess != SECRET and guesses_left >= 1:
+
+    guess = int(input("Guess: "))   # replace this with function call later
+
+    # checks that guess is not a duplicate
+    if guess in already_guessed:
+        print("You have already guessed that number. Please try again. "
+              "You still have {} guesses left".format(guesses_left))
+        continue
+
+    guesses_left -= 1
+    already_guessed.append(guess)
+
+    if guess > SECRET:
+        print("Too high, try a lower number. Guesses left: {}".format(guesses_left))
+    elif guess < SECRET:
+        print("Too low, try a higher number. Guesses left: {}".format(guesses_left))
+
+if guess == SECRET:
+    if guesses_left == GUESSES_ALLOWED - 1:
+        print("Good job! You got the secret number in one guess :)")
+    else:
+        print("Well done, you got it in {} guesses".format(len(already_guessed)))
+    num_won += 1
+else:
+    print("Sorry, you lost this round because you have run out of guesses :(")

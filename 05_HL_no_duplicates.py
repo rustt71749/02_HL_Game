@@ -15,7 +15,7 @@ guess = ""
 
 while guess != SECRET and guesses_left >= 1:
 
-    guess = int(input("Guess: "))   # replace this with function call later
+    guess = int(input("Guess: "))   # replace this with function call in final game
 
     # checks that guess is not a duplicate
     if guess in already_guessed:

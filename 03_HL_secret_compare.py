@@ -10,7 +10,7 @@ guess = ""
 
 while guess != SECRET:
 
-    guess = int(input("Guess: ")) # replace with call function later
+    guess = int(input("Guess: ")) # replace with call function in final game
 
     if guess > SECRET:
         print("Too high, try a lower number")
