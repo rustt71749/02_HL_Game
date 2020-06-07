@@ -45,7 +45,7 @@ def int_check(question, low=None, high=None):
 lowest = int_check("Low Number: ")
 highest = int_check("High Number: ", lowest + 1)
 rounds = int_check("Rounds: ", 1)
-guess = int_check("Guess: ", lowest, highest)
+# guess = int_check("Guess: ", lowest, highest)
 
 # Generate secret number between low and high
 LOW = lowest
@@ -56,7 +56,7 @@ for item in range(LOW, HIGH):
 
 # Compare users guess with secret number
 SECRET = secret
-GUESSES_ALLOWED = guess
+GUESSES_ALLOWED = 10
 
 already_guessed = []
 guesses_left = GUESSES_ALLOWED
