@@ -27,10 +27,21 @@ while guess != SECRET and guesses_left >= 1:
     guesses_left -= 1
     already_guessed.append(guess)
 
-    if guess > SECRET:
-        print("Too high, try a lower number. Guesses left: {}".format(guesses_left))
-    elif guess < SECRET:
-        print("Too low, try a higher number. Guesses left: {}".format(guesses_left))
+    # if user has guesses left
+    if guesses_left > 1:
+        if guess > SECRET:
+                print("Too high, try a lower number. Guesses left: {}".format(guesses_left))
+
+        elif guess < SECRET:
+                print("Too low, try a higher number. Guesses left: {}".format(guesses_left))
+
+    # if user has one guess left
+    elif guesses_left == 1:
+        if guess > SECRET:
+            print("Too high, try a lower number. THIS IS YOUR FINAL GUESS!")
+
+        elif guess < SECRET:
+            print("Too high, try a lower number. THIS IS YOUR FINAL GUESS!")
 
 if guess == SECRET:
     if guesses_left == GUESSES_ALLOWED - 1:
