@@ -64,6 +64,7 @@ num_won = 0
 
 guess = ""
 
+# Start game
 while guess != SECRET and guesses_left >= 1:
 
     guess = int(input("Guess: "))   # replace this with function call later
@@ -86,7 +87,7 @@ if guess == SECRET:
     if guesses_left == GUESSES_ALLOWED - 1:
         print("Good job! You got the secret number in one guess :)")
     else:
-        print("Well done, you got it in {} guesses".format(len(already_guessed)))
+        print("Congratulations, you got it in {} guesses".format(len(already_guessed)))
     num_won += 1
 else:
     print("Sorry, you lost this round because you have run out of guesses :(")

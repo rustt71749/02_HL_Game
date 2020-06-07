@@ -20,13 +20,21 @@ while guess != SECRET and guesses_left >= 1:
     guess = int(input("Guess: "))   # replace with function call in final game
     guesses_left -= 1
 
-    # If user has guesses left
-    if guesses_left >= 1:
+    # if user has guesses left
+    if guesses_left > 1:
         if guess > SECRET:
                 print("Too high, try a lower number. Guesses left: {}".format(guesses_left))
 
         elif guess < SECRET:
                 print("Too low, try a higher number. Guesses left: {}".format(guesses_left))
+
+    # if user has one guess left
+    elif guesses_left == 1:
+        if guess > SECRET:
+            print("Too high, try a lower number. THIS IS YOUR FINAL GUESS!")
+
+        elif guess < SECRET:
+            print("Too high, try a lower number. THIS IS YOUR FINAL GUESS!")
 
     # if user is out of guesses
     else:
@@ -37,9 +45,9 @@ while guess != SECRET and guesses_left >= 1:
 
 if guess == SECRET:
     if guesses_left == GUESSES_ALLOWED - 1:
-        print("Good job! You got the secret number in one guess :)")
+        print("Fantastic job! You got the secret number in one guess :D")
     else:
-        print("Well done, you guessed the secret number")
+        print("Congratulations, you guessed the secret number")
     num_won += 1
 else:
-    print("Sorry, you lost this round because you have run out of guesses :(")
+    print("Sorry, you lost this round because you have run out of guesses D:")
